@@ -38,27 +38,27 @@ export function Main() {
     setPopup(popup);
   }
   return (
-    <main class="content">
-      <section class="profile page__section">
-        <button onClick={() => handleOpenPopup(editAvatarPopup)} class="profile__avatar-button">
-          <div class="profile__edit-icon-container">
-            <img class="profile__edit-icon" src="./images/edit-icon.svg" alt="Avatar" />
+    <main className="content">
+      <section className="profile page__section">
+        <button onClick={() => handleOpenPopup(editAvatarPopup)} className="profile__avatar-button">
+          <div className="profile__edit-icon-container">
+            <img className="profile__edit-icon" src="./images/edit-icon.svg" alt="Avatar" />
           </div>
-          <img class="profile__image" src="./images/avatar.jpg" alt="Avatar" />
+          <img className="profile__image" src="./images/avatar.jpg" alt="Avatar" />
 
         </button>
 
-        <div class="profile__info">
-          <h1 class="profile__title">Jacques Cousteau</h1>
-          <button onClick={() => handleOpenPopup(editProfilePopup)} aria-label="Editar perfil" class="profile__edit-button" type="button"></button>
-          <p class="profile__description">Explorador</p>
+        <div className="profile__info">
+          <h1 className="profile__title">Jacques Cousteau</h1>
+          <button onClick={() => handleOpenPopup(editProfilePopup)} aria-label="Editar perfil" className="profile__edit-button" type="button"></button>
+          <p className="profile__description">Explorador</p>
         </div>
-        <button onClick={() => handleOpenPopup(newCardPopup)} aria-label="Adicionar cartão" class="profile__add-button" type="button"></button>
+        <button onClick={() => handleOpenPopup(newCardPopup)} aria-label="Adicionar cartão" className="profile__add-button" type="button"></button>
       </section>
 
 
-      <section class="cards page__section">
-        <ul class="cards__list">
+      <section className="cards page__section">
+        <ul className="cards__list">
           {cards.map((card) => (
             <Card key={card._id} card={card} handleOpenPopup={handleOpenPopup} />
           ))}
