@@ -1,7 +1,12 @@
+import { useState } from 'react';
+
 export default function EditProfile() {
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
 
     return (
         <form
+        onSubmit={(e) => e.preventDefault()}
         className="popup__form"
         name="profile-form"
         id="edit-profile-form"
@@ -17,6 +22,8 @@ export default function EditProfile() {
             placeholder="Name"
             required
             type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <span className="popup__input-error" id="name-error"></span>
         </label>
@@ -30,10 +37,12 @@ export default function EditProfile() {
             placeholder="About me"
             required
             type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
           <span className="popup__input-error" id="description-error"></span>
         </label>
-        <button className="button popup__button" type="submit" disabled={true}>Salvar</button>
+        <button className="button popup__button" type="submit">Salvar</button>
       </form>
     );
 }
