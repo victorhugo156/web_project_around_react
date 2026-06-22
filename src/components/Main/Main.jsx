@@ -4,7 +4,6 @@ import NewCard from '../NewCard/NewCard';
 import Card from '../Card/Card';
 import EditProfile from '../EditProfile/EditProfile';
 import EditAvatar from '../EditAvatar/EditAvatar';
-import editIcon from '../../images/edit-icon.svg';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 
@@ -23,7 +22,7 @@ export function Main({ onOpenPopup, onClosePopup, popup, cards, handleCardLike, 
       <section className="profile page__section">
         <button onClick={() => onOpenPopup(editAvatarPopup)} className="profile__avatar-button">
           <div className="profile__edit-icon-container">
-            <img className="profile__edit-icon" src={editIcon} alt="Avatar" />
+            <img className="profile__edit-icon" src="/images/edit-icon.svg" alt="Edit avatar" />
           </div>
           <img className="profile__image" src={currentUser.avatar} alt="Avatar" />
 
