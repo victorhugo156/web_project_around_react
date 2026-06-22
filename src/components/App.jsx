@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Header } from './Header/Header';
 import { Main } from './Main/Main';
 import { Footer } from './Footer/Footer';
-import { CurrentUserProvider } from "../contexts/CurrentUserContext";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import { api } from '../utils/api';
 
 export function App() {
@@ -80,11 +80,11 @@ export function App() {
 
   return (
     <div className="page__content">
-      <CurrentUserProvider value={{currentUser, setCurrentUser, handleUpdateUser, handleUpdateAvatar, handleAddPlaceSubmit}}>
+      <CurrentUserContext.Provider value={{currentUser, setCurrentUser, handleUpdateUser, handleUpdateAvatar, handleAddPlaceSubmit}}>
         <Header />
         <Main onOpenPopup={handleOpenPopup} onClosePopup={handleClosePopup} popup={popup} cards={cards} handleCardLike={handleCardLike} handleCardDelete={handleCardDelete} />
         <Footer />
-      </CurrentUserProvider>
+      </CurrentUserContext.Provider>
     </div>
   )
 }
