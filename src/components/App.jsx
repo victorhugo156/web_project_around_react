@@ -15,8 +15,6 @@ export function App() {
   async function handleCardLike(card) {
 
     const isLiked = card.isLiked;
-    console.log("card._id:", card._id, "isLiked:", isLiked);
-
 
     await api.changeLikeCardStatus(card._id, isLiked).then((newCard) => {
       setCards((element) => element.map((currentCard) => currentCard._id === card._id ? newCard : currentCard));
@@ -24,9 +22,9 @@ export function App() {
   }
 
   async function handleCardDelete(card) {
-    await api.deleteCard(card._id).then((newCard) => {
-      console.log("Delete response:", newCard)
+    await api.deleteCard(card._id).then(() => {
       setCards((element) => element.filter((element) => element._id !== card._id));
+      handleClosePopup();
     }).catch((error) => console.error(error));
   }
 
@@ -64,8 +62,8 @@ export function App() {
   };
 
   useEffect(() => {
-    api.getInitialData()
-    .then(([user]) => {
+    api.getUserInfo()
+    .then((user) => {
       setCurrentUser(user);
     })
     .catch(err => console.log(err));

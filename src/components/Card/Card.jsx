@@ -1,9 +1,9 @@
 import ImagePopup from "../ImagePopup/ImagePopup";
+import RemoveCard from "../RemoveCard/RemoveCard";
 
 export default function Card({ card, onOpenPopup, handleCardLike, handleCardDelete }) {
 
   const { name, link } = card;
-  console.log("This is the card name:", card)
 
   const imagePopupConfig = {
     children: <ImagePopup link={link} name={name} />
@@ -14,10 +14,16 @@ export default function Card({ card, onOpenPopup, handleCardLike, handleCardDele
     }`;
 
   function handleLike() {
+    
     handleCardLike(card);
   }
   function handleDelete() {
-    handleCardDelete(card);
+    const removeCardPopup = {
+      title: "Tem certeza?",
+      children: <RemoveCard onConfirm={() => handleCardDelete(card)} />
+  };
+    onOpenPopup(removeCardPopup);
+    // handleCardDelete(card);
   }
 
   return (

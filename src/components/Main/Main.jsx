@@ -4,6 +4,7 @@ import NewCard from '../NewCard/NewCard';
 import Card from '../Card/Card';
 import EditProfile from '../EditProfile/EditProfile';
 import EditAvatar from '../EditAvatar/EditAvatar';
+
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 
@@ -13,6 +14,7 @@ export function Main({ onOpenPopup, onClosePopup, popup, cards, handleCardLike, 
   const newCardPopup = { title: "New card", children: <NewCard onAddPlaceSubmit={handleAddPlaceSubmit} /> };
   const editProfilePopup = { title: "Edit profile", children: <EditProfile /> };
   const editAvatarPopup = { title: "Edit avatar", children: <EditAvatar /> };
+
 
   const { currentUser } = useContext(CurrentUserContext);
 

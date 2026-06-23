@@ -1,16 +1,8 @@
-import { useEffect, useCallback, useRef, useState } from 'react';
+import { useEffect, useCallback} from 'react';
 
 export default function Popup(props) {
     const { onClose, title, children } = props;
 
-    const contentRef = useRef(null);
-    const [isContentClick, setIsContentClick] = useState(false);
-
-    const handleContentClick = useCallback((e) => {
-      if (e.target === contentRef.current) {
-        setIsContentClick(true);
-      }
-    }, []);
     const handleEscClose = useCallback((e) => {
       if (e.key === 'Escape') {
           onClose();
@@ -30,7 +22,7 @@ export default function Popup(props) {
 
     return (
       <div className="popup" onClick={handleClickOverlayClose}>
-        <div className={`popup__content ${!title ? "popup__content_content_image" : ""}`} ref={contentRef} onClick={handleContentClick}>
+        <div className={`popup__content ${!title ? "popup__content_content_image" : ""}`} >
           <button
             aria-label="Close modal"
             className="popup__close"
